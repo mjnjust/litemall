@@ -1,10 +1,10 @@
 <template>
   <div class="tab_home">
-    <div class="tal_class_searchBox">
-      <van-search placeholder="点击前往搜索"
-                  @click="$router.push({ name: 'search' })" />
-      <div class="tal_class_searchMask"></div>
-    </div>
+<!--    <div class="tal_class_searchBox">-->
+<!--      <van-search placeholder="点击前往搜索"-->
+<!--                  @click="$router.push({ name: 'search' })" />-->
+<!--      <div class="tal_class_searchMask"></div>-->
+<!--    </div>-->
     <van-swipe :autoplay="3000"
                indicator-color="white">
       <van-swipe-item v-for="(banner, index) in shopInfos.banner"
@@ -25,105 +25,128 @@
       </div>
     </div>
 
-    <van-panel title="优惠券"
-               style=" padding-bottom: 10px;">
-      <div class="van-coupon-item"
-           v-for="(coupon,index) in shopInfos.couponList"
-           :key="index"
-           @click="getCoupon(coupon.id)">
-        <div class="van-coupon-item__content">
-          <div class="van-coupon-item__head">
-            <h2>
-              <span>¥</span>
-              {{coupon.discount}} 元
-            </h2>
-            <p>{{coupon.desc }} - {{coupon.tag}}</p>
-          </div>
-          <div class="van-coupon-item__body">
-            <h2>{{coupon.name}}</h2>
-            <p>有效期：{{coupon.days}} 天</p>
+<!--    <van-panel title="优惠券"-->
+<!--               style=" padding-bottom: 10px;">-->
+<!--      <div class="van-coupon-item"-->
+<!--           v-for="(coupon,index) in shopInfos.couponList"-->
+<!--           :key="index"-->
+<!--           @click="getCoupon(coupon.id)">-->
+<!--        <div class="van-coupon-item__content">-->
+<!--          <div class="van-coupon-item__head">-->
+<!--            <h2>-->
+<!--              <span>¥</span>-->
+<!--              {{coupon.discount}} 元-->
+<!--            </h2>-->
+<!--            <p>{{coupon.desc }} - {{coupon.tag}}</p>-->
+<!--          </div>-->
+<!--          <div class="van-coupon-item__body">-->
+<!--            <h2>{{coupon.name}}</h2>-->
+<!--            <p>有效期：{{coupon.days}} 天</p>-->
 
-          </div>
-        </div>
+<!--          </div>-->
+<!--        </div>-->
 
-      </div>
-    </van-panel>
+<!--      </div>-->
+<!--    </van-panel>-->
 
-    <van-panel>
-      <van-card :thumb-link="goDetail(grouponGood.id)"
-                v-for="(grouponGood ,index) in shopInfos.grouponList"
-                :key="index"
-                :title="grouponGood.name"
-                :desc="grouponGood.brief"
-                :origin-price="grouponGood.retailPrice"
-                :price="grouponGood.grouponPrice +'.00'"
-                :thumb="grouponGood.picUrl"
-                @native-click="goDetail(grouponGood.id)">
-        <div slot="tags"
-             class="card__tags">
-          <van-tag plain
-                   type="primary">
-            {{grouponGood.grouponMember}}人成团
-          </van-tag>
-          <van-tag plain
-                   type="danger">
-            {{grouponGood.grouponDiscount}}元再减
-          </van-tag>
-        </div>
-      </van-card>
-      <div slot='header'>
-        <van-cell-group>
-          <van-cell title="团购专区"
-                    isLink>
-            <router-link to="/items/groupon"
-                         class="text-desc">更多团购商品</router-link>
-          </van-cell>
-        </van-cell-group>
-      </div>
-    </van-panel>
+<!--    <van-panel>-->
+<!--      <van-card :thumb-link="goDetail(grouponGood.id)"-->
+<!--                v-for="(grouponGood ,index) in shopInfos.grouponList"-->
+<!--                :key="index"-->
+<!--                :title="grouponGood.name"-->
+<!--                :desc="grouponGood.brief"-->
+<!--                :origin-price="grouponGood.retailPrice"-->
+<!--                :price="grouponGood.grouponPrice +'.00'"-->
+<!--                :thumb="grouponGood.picUrl"-->
+<!--                @native-click="goDetail(grouponGood.id)">-->
+<!--        <div slot="tags"-->
+<!--             class="card__tags">-->
+<!--          <van-tag plain-->
+<!--                   type="primary">-->
+<!--            {{grouponGood.grouponMember}}人成团-->
+<!--          </van-tag>-->
+<!--          <van-tag plain-->
+<!--                   type="danger">-->
+<!--            {{grouponGood.grouponDiscount}}元再减-->
+<!--          </van-tag>-->
+<!--        </div>-->
+<!--      </van-card>-->
+<!--      <div slot='header'>-->
+<!--        <van-cell-group>-->
+<!--          <van-cell title="团购专区"-->
+<!--                    isLink>-->
+<!--            <router-link to="/items/groupon"-->
+<!--                         class="text-desc">更多团购商品</router-link>-->
+<!--          </van-cell>-->
+<!--        </van-cell-group>-->
+<!--      </div>-->
+<!--    </van-panel>-->
+
+<!--    <van-panel>-->
+<!--      <van-grid clickable-->
+<!--                :column-num="2">-->
+<!--        <van-grid-item v-for="(brand ,index) in shopInfos.brandList"-->
+<!--                       :key="index"-->
+<!--                       :text="brand.name"-->
+<!--                       :url="goBrand(brand.id)">-->
+<!--          <img :src="brand.picUrl"-->
+<!--               style="width: 80%;" />-->
+<!--          <div style="font-size:16px;"> {{ brand.name }}</div>-->
+<!--        </van-grid-item>-->
+<!--      </van-grid>-->
+<!--      <div slot='header'>-->
+<!--        <van-cell-group>-->
+<!--          <van-cell title="品牌商直供"-->
+<!--                    isLink>-->
+<!--            <router-link to="/items/brand-list"-->
+<!--                         class="text-desc">更多品牌商</router-link>-->
+<!--          </van-cell>-->
+<!--        </van-cell-group>-->
+<!--      </div>-->
+<!--    </van-panel>-->
+
+<!--    <van-panel>-->
+<!--      <van-row gutter>-->
+<!--        <van-col span="12"-->
+<!--                 v-for="(newGood ,index) in shopInfos.newGoodsList"-->
+<!--                 :key="index">-->
+<!--          <router-link :to="{ path: `/items/detail/${newGood.id}`}">-->
+<!--            <img :src="newGood.picUrl"-->
+<!--                 style="width:180px;height:180px;">-->
+<!--          </router-link>-->
+<!--          <span style="padding-left: 20px;position: relative;bottom: 10px; color: rgb(123, 116, 116);white-space: nowrap;">{{newGood.name}}</span>-->
+<!--          <span style="padding-left: 80px;position: relative;bottom: 10px; color:#ab956d">￥ {{newGood.retailPrice}}</span>-->
+<!--        </van-col>-->
+<!--      </van-row>-->
+<!--      <div slot='header'>-->
+<!--        <van-cell-group>-->
+<!--          <van-cell title="新品首发"-->
+<!--                    isLink>-->
+<!--            <router-link to="/items/new"-->
+<!--                         class="text-desc">更多新品首发</router-link>-->
+<!--          </van-cell>-->
+<!--        </van-cell-group>-->
+<!--      </div>-->
+<!--    </van-panel>-->
 
     <van-panel>
       <van-grid clickable
                 :column-num="2">
-        <van-grid-item v-for="(brand ,index) in shopInfos.brandList"
+        <van-grid-item v-for="(topic ,index) in shopInfos.topicList"
                        :key="index"
-                       :text="brand.name"
-                       :url="goBrand(brand.id)">
-          <img :src="brand.picUrl"
-               style="width: 80%;" />
-          <div style="font-size:16px;"> {{ brand.name }}</div>
+                       :url="goTopic(topic.id)">
+          <img :src="topic.picUrl"
+               style="width: 90%; max-height: 150px;" />
+          <div style="font-size:14px;color:#ab956d;"> {{ topic.title }}</div>
+          <div style="font-size:10px;color:#ab956d;"> {{ topic.subtitle }}</div>
         </van-grid-item>
       </van-grid>
       <div slot='header'>
         <van-cell-group>
-          <van-cell title="品牌商直供"
+          <van-cell title="专题精选"
                     isLink>
-            <router-link to="/items/brand-list"
-                         class="text-desc">更多品牌商</router-link>
-          </van-cell>
-        </van-cell-group>
-      </div>
-    </van-panel>
-
-    <van-panel>
-      <van-row gutter>
-        <van-col span="12"
-                 v-for="(newGood ,index) in shopInfos.newGoodsList"
-                 :key="index">
-          <router-link :to="{ path: `/items/detail/${newGood.id}`}">
-            <img :src="newGood.picUrl"
-                 style="width:180px;height:180px;">
-          </router-link>
-          <span style="padding-left: 20px;position: relative;bottom: 10px; color: rgb(123, 116, 116);white-space: nowrap;">{{newGood.name}}</span>
-          <span style="padding-left: 80px;position: relative;bottom: 10px; color:#ab956d">￥ {{newGood.retailPrice}}</span>
-        </van-col>
-      </van-row>
-      <div slot='header'>
-        <van-cell-group>
-          <van-cell title="新品首发"
-                    isLink>
-            <router-link to="/items/new"
-                         class="text-desc">更多新品首发</router-link>
+            <router-link to="/items/topic-list"
+                         class="text-desc">更多专题精选</router-link>
           </van-cell>
         </van-cell-group>
       </div>
@@ -151,30 +174,6 @@
         </van-cell-group>
       </div>
     </van-panel>
-
-<van-panel>
-      <van-grid clickable
-                :column-num="2">
-        <van-grid-item v-for="(topic ,index) in shopInfos.topicList"
-                       :key="index"
-                       :url="goTopic(topic.id)">
-          <img :src="topic.picUrl"
-               style="width: 90%; max-height: 150px;" />
-          <div style="font-size:14px;color:#ab956d;"> {{ topic.title }}</div>
-          <div style="font-size:10px;color:#ab956d;"> {{ topic.subtitle }}</div>
-        </van-grid-item>
-      </van-grid>
-      <div slot='header'>
-        <van-cell-group>
-          <van-cell title="专题精选"
-                    isLink>
-            <router-link to="/items/topic-list"
-                         class="text-desc">更多专题精选</router-link>
-          </van-cell>
-        </van-cell-group>
-      </div>
-    </van-panel>
-
   </div>
 </template>
 

@@ -27,6 +27,9 @@ export default {
       goods_create: '商品上架',
       goods_edit: '商品编辑',
       goods_comment: '商品评论',
+      resource: '衣物管理',
+      resource_list: '衣物列表',
+      resource_create: '添加新品',
       promotion: '推广管理',
       promotion_ad: '广告管理',
       promotion_coupon: '优惠券管理',
@@ -506,7 +509,7 @@ export default {
   },
   goods_edit: {
     section: {
-      goods: '商品介绍',
+      goods: '介绍',
       specifications: '商品规格',
       products: '商品库存',
       attributes: '商品参数'

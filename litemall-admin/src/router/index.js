@@ -283,6 +283,40 @@ export const asyncRoutes = [
       }
     ]
   },
+
+  {
+    path: '/resource',
+    component: Layout,
+    redirect: 'noredirect',
+    alwaysShow: true,
+    name: 'goodsManage',
+    meta: {
+      title: 'app.menu.resource',
+      icon: 'chart'
+    },
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/resource/list'),
+        name: 'goodsList',
+        meta: {
+          perms: ['GET /admin/goods/list', 'POST /admin/goods/delete'],
+          title: 'app.menu.resource_list',
+          noCache: true
+        }
+      },
+      {
+        path: 'create',
+        component: () => import('@/views/resource/create'),
+        name: 'goodsCreate',
+        meta: {
+          perms: ['POST /admin/goods/create'],
+          title: 'app.menu.resource_create',
+          noCache: true
+        }
+      }
+    ]
+  },
   {
     path: '/promotion',
     component: Layout,
