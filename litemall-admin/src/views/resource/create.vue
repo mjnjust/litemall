@@ -241,7 +241,7 @@ export default {
       this.newKeyword = ''
     },
     uploadPicUrl: function(response) {
-      this.goods.picUrl = response.data.url.replace('localhost:8080', '110.40.182.227:8001')
+      this.goods.picUrl = response.data.url
     },
     uploadOverrun: function() {
       this.$message({
