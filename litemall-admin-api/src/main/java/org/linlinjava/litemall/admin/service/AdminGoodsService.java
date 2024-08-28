@@ -48,76 +48,6 @@ public class AdminGoodsService {
         return ResponseUtil.okList(goodsList);
     }
 
-    private Object validate(GoodsAllinone goodsAllinone) {
-        LitemallGoods goods = goodsAllinone.getGoods();
-        String name = goods.getName();
-        if (StringUtils.isEmpty(name)) {
-            return ResponseUtil.badArgument();
-        }
-        String goodsSn = goods.getGoodsSn();
-        if (StringUtils.isEmpty(goodsSn)) {
-            return ResponseUtil.badArgument();
-        }
-        // 品牌商可以不设置，如果设置则需要验证品牌商存在
-        Integer brandId = goods.getBrandId();
-        if (brandId != null && brandId != 0) {
-            if (brandService.findById(brandId) == null) {
-                return ResponseUtil.badArgumentValue();
-            }
-        }
-        // 分类可以不设置，如果设置则需要验证分类存在
-        Integer categoryId = goods.getCategoryId();
-        if (categoryId != null && categoryId != 0) {
-            if (categoryService.findById(categoryId) == null) {
-                return ResponseUtil.badArgumentValue();
-            }
-        }
-
-        LitemallGoodsAttribute[] attributes = goodsAllinone.getAttributes();
-        for (LitemallGoodsAttribute attribute : attributes) {
-            String attr = attribute.getAttribute();
-            if (StringUtils.isEmpty(attr)) {
-                return ResponseUtil.badArgument();
-            }
-            String value = attribute.getValue();
-            if (StringUtils.isEmpty(value)) {
-                return ResponseUtil.badArgument();
-            }
-        }
-
-        LitemallGoodsSpecification[] specifications = goodsAllinone.getSpecifications();
-        for (LitemallGoodsSpecification specification : specifications) {
-            String spec = specification.getSpecification();
-            if (StringUtils.isEmpty(spec)) {
-                return ResponseUtil.badArgument();
-            }
-            String value = specification.getValue();
-            if (StringUtils.isEmpty(value)) {
-                return ResponseUtil.badArgument();
-            }
-        }
-
-        LitemallGoodsProduct[] products = goodsAllinone.getProducts();
-        for (LitemallGoodsProduct product : products) {
-            Integer number = product.getNumber();
-            if (number == null || number < 0) {
-                return ResponseUtil.badArgument();
-            }
-
-            BigDecimal price = product.getPrice();
-            if (price == null) {
-                return ResponseUtil.badArgument();
-            }
-
-            String[] productSpecifications = product.getSpecifications();
-            if (productSpecifications.length == 0) {
-                return ResponseUtil.badArgument();
-            }
-        }
-
-        return null;
-    }
-
     /**
      * 编辑商品
      *
@@ -142,10 +72,6 @@ public class AdminGoodsService {
      */
     @Transactional
     public Object update(GoodsAllinone goodsAllinone) {
-        Object error = validate(goodsAllinone);
-        if (error != null) {
-            return error;
-        }
 
         LitemallGoods goods = goodsAllinone.getGoods();
         LitemallGoodsAttribute[] attributes = goodsAllinone.getAttributes();
@@ -230,10 +156,6 @@ public class AdminGoodsService {
 
     @Transactional
     public Object create(GoodsAllinone goodsAllinone) {
-        Object error = validate(goodsAllinone);
-        if (error != null) {
-            return error;
-        }
 
         LitemallGoods goods = goodsAllinone.getGoods();
         LitemallGoodsAttribute[] attributes = goodsAllinone.getAttributes();

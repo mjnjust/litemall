@@ -4,12 +4,9 @@
     <!-- 查询和其他操作 -->
     <div class="filter-container">
       <el-input v-model="listQuery.goodsId" clearable class="filter-item" style="width: 160px;" :placeholder="$t('goods_list.placeholder.filter_goods_id')" />
-      <el-input v-model="listQuery.goodsSn" clearable class="filter-item" style="width: 160px;" :placeholder="$t('goods_list.placeholder.filter_goods_sn')" />
       <el-input v-model="listQuery.name" clearable class="filter-item" style="width: 160px;" :placeholder="$t('goods_list.placeholder.filter_name')" />
       <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">{{ $t('app.button.search') }}</el-button>
       <el-button class="filter-item" type="primary" icon="el-icon-edit" @click="handleCreate">{{ $t('app.button.create') }}</el-button>
-      <el-button :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">{{ $t('app.button.download') }}</el-button>
-      <el-button class="filter-item" type="danger" icon="el-icon-delete" :disabled="batchDeleteArr.length === 0" @click="handleDeleteRows">{{ $t('app.button.batch_delete') }}</el-button>
     </div>
 
     <!-- 查询结果 -->

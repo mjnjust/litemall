@@ -314,6 +314,17 @@ export const asyncRoutes = [
           title: 'app.menu.resource_create',
           noCache: true
         }
+      },
+      {
+        path: 'edit',
+        component: () => import('@/views/resource/edit'),
+        name: 'goodsEdit',
+        meta: {
+          perms: ['POST /admin/goods/edit'],
+          title: '编辑',
+          noCache: true
+        },
+        hidden: true
       }
     ]
   },

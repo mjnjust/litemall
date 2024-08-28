@@ -38,7 +38,7 @@
           </el-upload>
         </el-form-item>
 
-        <el-form-item :label="$t('goods_edit.form.keywords')">
+        <el-form-item :label="$t('关键字')">
           <el-tag v-for="tag in keywords" :key="tag" closable type="primary" @close="handleClose(tag)">
             {{ tag }}
           </el-tag>
@@ -52,12 +52,6 @@
             @blur="handleInputConfirm"
           />
           <el-button v-else class="button-new-keyword" type="primary" @click="showInput">{{ $t('app.button.add') }}</el-button>
-        </el-form-item>
-
-        <el-form-item :label="$t('goods_edit.form.brand_id')">
-          <el-select v-model="goods.brandId" clearable>
-            <el-option v-for="item in brandList" :key="item.value" :label="item.label" :value="item.value" />
-          </el-select>
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.brief')">
