@@ -1,5 +1,6 @@
 package org.linlinjava.litemall.admin.service;
 
+import com.google.common.collect.Lists;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.admin.dto.GoodsAllinone;
@@ -46,6 +47,17 @@ public class AdminGoodsService {
                        Integer page, Integer limit, String sort, String order) {
         List<LitemallGoods> goodsList = goodsService.querySelective(goodsId, goodsSn, name, page, limit, sort, order);
         return ResponseUtil.okList(goodsList);
+    }
+
+    public Object stockList(Integer goodsId) {
+        LitemallGoods goods = goodsService.findById(goodsId);
+        Map<String,Object> data = new HashMap<>();
+        data.put("goods",goods);
+        List<LitemallGoods> list = new ArrayList<>();
+        list.add(goods);
+        data.put("stock", list);
+        data.put("total",0);
+        return ResponseUtil.ok(data);
     }
 
     /**

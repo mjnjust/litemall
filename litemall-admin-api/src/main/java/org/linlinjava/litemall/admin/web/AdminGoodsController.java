@@ -6,6 +6,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.linlinjava.litemall.admin.annotation.RequiresPermissionsDesc;
 import org.linlinjava.litemall.admin.dto.GoodsAllinone;
 import org.linlinjava.litemall.admin.service.AdminGoodsService;
+import org.linlinjava.litemall.core.util.ResponseUtil;
 import org.linlinjava.litemall.core.validator.Order;
 import org.linlinjava.litemall.core.validator.Sort;
 import org.linlinjava.litemall.db.domain.LitemallGoods;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/admin/goods")
@@ -45,6 +47,13 @@ public class AdminGoodsController {
                        @Sort @RequestParam(defaultValue = "add_time") String sort,
                        @Order @RequestParam(defaultValue = "desc") String order) {
         return adminGoodsService.list(goodsId, goodsSn, name, page, limit, sort, order);
+    }
+
+    @RequiresPermissions("admin:goods:list")
+    @RequiresPermissionsDesc(menu = {"商品管理", "商品管理"}, button = "查询")
+    @GetMapping("/stock_list")
+    public Object stockList(Integer goodsId) {
+        return adminGoodsService.stockList(goodsId);
     }
 
     @GetMapping("/catAndBrand")
@@ -102,7 +111,6 @@ public class AdminGoodsController {
     @GetMapping("/detail")
     public Object detail(@NotNull Integer id) {
         return adminGoodsService.detail(id);
-
     }
 
 }

@@ -230,61 +230,6 @@ export const asyncRoutes = [
   },
 
   {
-    path: '/goods',
-    component: Layout,
-    redirect: 'noredirect',
-    alwaysShow: true,
-    name: 'goodsManage',
-    meta: {
-      title: 'app.menu.goods',
-      icon: 'chart'
-    },
-    children: [
-      {
-        path: 'list',
-        component: () => import('@/views/goods/list'),
-        name: 'goodsList',
-        meta: {
-          perms: ['GET /admin/goods/list', 'POST /admin/goods/delete'],
-          title: 'app.menu.goods_list',
-          noCache: true
-        }
-      },
-      {
-        path: 'create',
-        component: () => import('@/views/goods/create'),
-        name: 'goodsCreate',
-        meta: {
-          perms: ['POST /admin/goods/create'],
-          title: 'app.menu.goods_create',
-          noCache: true
-        }
-      },
-      {
-        path: 'edit',
-        component: () => import('@/views/goods/edit'),
-        name: 'goodsEdit',
-        meta: {
-          perms: ['GET /admin/goods/detail', 'POST /admin/goods/update', 'POST /admin/goods/catAndBrand'],
-          title: 'app.menu.goods_edit',
-          noCache: true
-        },
-        hidden: true
-      },
-      {
-        path: 'comment',
-        component: () => import('@/views/goods/comment'),
-        name: 'goodsComment',
-        meta: {
-          perms: ['GET /admin/comment/list', 'POST /admin/comment/delete'],
-          title: 'app.menu.goods_comment',
-          noCache: true
-        }
-      }
-    ]
-  },
-
-  {
     path: '/resource',
     component: Layout,
     redirect: 'noredirect',
@@ -325,6 +270,17 @@ export const asyncRoutes = [
           noCache: true
         },
         hidden: true
+      },
+      {
+        path: 'stock_list',
+        component: () => import('@/views/resource/stock_list'),
+        name: 'stock_list',
+        meta: {
+          perms: ['POST /admin/goods/list'],
+          title: '库存',
+          noCache: true
+        },
+        hidden: false
       }
     ]
   },

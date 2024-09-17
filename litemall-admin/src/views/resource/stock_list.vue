@@ -1,13 +1,8 @@
 <template>
   <div class="app-container">
-
-    <!-- 查询和其他操作 -->
-    <div class="filter-container">
-      <el-input v-model="listQuery.goodsId" clearable class="filter-item" style="width: 160px;" :placeholder="$t('goods_list.placeholder.filter_goods_id')" />
-      <el-input v-model="listQuery.name" clearable class="filter-item" style="width: 160px;" :placeholder="$t('goods_list.placeholder.filter_name')" />
-      <el-button class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">{{ $t('app.button.search') }}</el-button>
-      <el-button class="filter-item" type="primary" icon="el-icon-edit" @click="handleCreate">{{ $t('app.button.create') }}</el-button>
-    </div>
+    <el-card class="box-card">
+      <h4>{{ $t('goods_edit.section.goods') }}</h4>
+    </el-card>
 
     <!-- 查询结果 -->
     <el-table v-loading="listLoading" :data="list" :element-loading-text="$t('app.message.list_loading')" border fit highlight-current-row @selection-change="handleSelectionChange">
@@ -31,10 +26,9 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('goods_list.table.actions')" width="300" class-name="small-padding fixed-width">
+      <el-table-column align="center" :label="$t('goods_list.table.actions')" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">{{ $t('编辑') }}</el-button>
-          <el-button type="primary" size="mini" @click="handleStock(scope.row)">{{ $t('库存') }}</el-button>
           <el-button type="danger" size="mini" @click="handleDelete(scope.row)">{{ $t('删除') }}</el-button>
         </template>
       </el-table-column>
@@ -72,7 +66,7 @@
 </style>
 
 <script>
-import { listGoods, deleteGoods } from '@/api/goods'
+import { listGoods, deleteGoods, listGoodStock } from '@/api/goods'
 import BackToTop from '@/components/BackToTop'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 import { thumbnail, toPreview } from '@/utils/index'
@@ -87,6 +81,7 @@ export default {
       toPreview,
       list: [],
       total: 0,
+      goodsInfo: {},
       listLoading: true,
       listQuery: {
         page: 1,
@@ -107,9 +102,11 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
-      listGoods(this.listQuery).then(response => {
-        this.list = response.data.data.list
+      listGoodStock({ 'goodsId': this.$route.query.id }).then(response => {
+        console.log(response.data)
+        this.list = response.data.data.stock
         this.total = response.data.data.total
+        this.goodsInfo = response.data.data.goods
         this.listLoading = false
       }).catch(() => {
         this.list = []
@@ -126,9 +123,6 @@ export default {
     },
     handleUpdate(row) {
       this.$router.push({ path: '/resource/edit', query: { id: row.id }})
-    },
-    handleStock(row) {
-      this.$router.push({ path: '/resource/stock_list', query: { id: row.id }})
     },
     showDetail(detail) {
       this.goodsDetail = detail

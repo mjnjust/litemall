@@ -1,5 +1,12 @@
 import request from '@/utils/request'
 
+export function listGoodStock(good_id) {
+  return request({
+    url: '/goods/stock_list',
+    method: 'get',
+    params: good_id
+  })
+}
 export function listGoods(query) {
   return request({
     url: '/goods/list',

@@ -13,17 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class Application {
 
     public static void main(String[] args) throws Exception {
-//        SpringApplication.run(Application.class, args);
-
-        double lilv = 0.03001;
-        double year = 10;
-        double benjin = 50000;
-        double benxi = 50000;
-        for(int i = 1;i<=5;i++){
-            benxi = benxi*(1+lilv);
-            System.out.println("第"+i+"年末本息:"+benxi);
-        }
-
+        SpringApplication.run(Application.class, args);
     }
 
 }
