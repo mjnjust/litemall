@@ -49,16 +49,6 @@
         "pagePath": "pages/catalog/catalog",
         "iconPath": "images/tabbar/menu-f.png",
         "selectedIconPath": "images/tabbar/menu-o.png"
-      },
-      {
-        "pagePath": "pages/cart/cart",
-        "iconPath": "images/tabbar/cart-f.png",
-        "selectedIconPath": "images/tabbar/cart-o.png"
-      },
-      {
-        "pagePath": "pages/ucenter/index/index",
-        "iconPath": "images/tabbar/user-f.png",
-        "selectedIconPath": "images/tabbar/user-o.png"
       }
     ]
   },

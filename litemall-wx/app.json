@@ -67,18 +67,6 @@
         "iconPath": "static/images/category.png",
         "selectedIconPath": "static/images/category@selected.png",
         "text": "分类"
-      },
-      {
-        "pagePath": "pages/cart/cart",
-        "iconPath": "static/images/cart.png",
-        "selectedIconPath": "static/images/cart@selected.png",
-        "text": "购物车"
-      },
-      {
-        "pagePath": "pages/ucenter/index/index",
-        "iconPath": "static/images/my.png",
-        "selectedIconPath": "static/images/my@selected.png",
-        "text": "个人"
       }
     ]
   },

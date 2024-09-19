@@ -8,6 +8,12 @@
           <el-input v-model="goods.name" />
         </el-form-item>
 
+        <el-form-item :label="$t('goods_edit.form.counter_price')" prop="counterPrice">
+          <el-input v-model="goods.counterPrice" placeholder="0.00">
+            <template slot="append">元</template>
+          </el-input>
+        </el-form-item>
+
         <el-form-item :label="$t('首图')">
           <el-upload
             :action="uploadPath"
@@ -52,6 +58,10 @@
             @blur="handleInputConfirm"
           />
           <el-button v-else class="button-new-keyword" type="primary" @click="showInput">{{ $t('app.button.add') }}</el-button>
+        </el-form-item>
+
+        <el-form-item :label="$t('goods_edit.form.category_id')">
+          <el-cascader :options="categoryList" expand-trigger="hover" clearable @change="handleCategoryChange" />
         </el-form-item>
 
         <el-form-item :label="$t('goods_edit.form.brief')">

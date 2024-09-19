@@ -111,7 +111,7 @@
 .goods-info .counterPrice {
   float: left;
   padding-left: 0rpx;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   font-size: 30rpx;
   color: #999;
 }

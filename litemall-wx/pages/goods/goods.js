@@ -135,27 +135,8 @@ Page({
       if (res.errno === 0) {
 
         let _specificationList = res.data.specificationList;
-        let _tmpPicUrl = res.data.productList[0].url;
-        //console.log("pic: "+_tmpPicUrl);
-        // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
-        if (_specificationList.length == 1) {
-          if (_specificationList[0].valueList.length == 1) {
-            _specificationList[0].valueList[0].checked = true
-
-            // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
-            // 这里检测一下
-            let _productPrice = res.data.productList[0].price;
-            let _goodsPrice = res.data.info.retailPrice;
-            if (_productPrice != _goodsPrice) {
-              console.error('商品数量价格和货品不一致');
-            }
-
-            that.setData({
-              checkedSpecText: _specificationList[0].valueList[0].value,
-              tmpSpecText: '已选择：' + _specificationList[0].valueList[0].value
-            });
-          }
-        }
+        let _tmpPicUrl = "";
+        
         res.data.info.path = "pages/goods/goods?id=" + that.data.id
 
         that.setData({
@@ -174,37 +155,12 @@ Page({
           //选择规格时，默认展示第一张图片
           tmpPicUrl: _tmpPicUrl
         });
-
+        that.setData({
+          collect: false
+        });
         
-        //如果是通过分享的团购参加团购，则团购项目应该与分享的一致并且不可更改
-        if (that.data.isGroupon) {
-          let groupons = that.data.groupon;
-          for (var i = 0; i < groupons.length; i++) {
-            if (groupons[i].id != that.data.grouponLink.rulesId) {
-              groupons.splice(i, 1);
-            }
-          }
-          groupons[0].checked = true;
-          //重设团购规格
-          that.setData({
-            groupon: groupons
-          });
-
-        }
-
-        if (res.data.userHasCollect == 1) {
-          that.setData({
-            collect: true
-          });
-        } else {
-          that.setData({
-            collect: false
-          });
-        }
 
         WxParse.wxParse('goodsDetail', 'html', res.data.info.detail, that);
-        //获取推荐商品
-        that.getGoodsRelated();
       }
     });
   },
