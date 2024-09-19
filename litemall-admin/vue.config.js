@@ -31,8 +31,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/admin': {
-        // target: 'http://110.40.182.227:8001'
-        target: 'http://localhost:8080'
+        target: 'http://110.40.182.227:8001'
+        // target: 'http://localhost:8080'
       },
     },
     port: port,
