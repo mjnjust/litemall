@@ -5,6 +5,7 @@ import org.linlinjava.litemall.db.dao.LitemallGoodsMapper;
 import org.linlinjava.litemall.db.domain.LitemallGoods;
 import org.linlinjava.litemall.db.domain.LitemallGoods.Column;
 import org.linlinjava.litemall.db.domain.LitemallGoodsExample;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -22,7 +23,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取热卖商品
-     *
      * @param offset
      * @param limit
      * @return
@@ -38,7 +38,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取新品上市
-     *
      * @param offset
      * @param limit
      * @return
@@ -54,7 +53,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取分类下的商品
-     *
      * @param catList
      * @param offset
      * @param limit
@@ -72,7 +70,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取分类下的商品
-     *
      * @param catId
      * @param offset
      * @param limit
@@ -151,11 +148,10 @@ public class LitemallGoodsService {
     }
 
     /**
-     * 获取某个商品信息,包含完整信息
-     *
      * @param id
      * @return
      */
+    @Cacheable(value = "goods", key = "#id")
     public LitemallGoods findById(Integer id) {
         LitemallGoodsExample example = new LitemallGoodsExample();
         example.or().andIdEqualTo(id).andDeletedEqualTo(false);
@@ -163,11 +159,10 @@ public class LitemallGoodsService {
     }
 
     /**
-     * 获取某个商品信息，仅展示相关内容
-     *
      * @param id
      * @return
      */
+    @Cacheable(value = "goods", key = "#id")
     public LitemallGoods findByIdVO(Integer id) {
         LitemallGoodsExample example = new LitemallGoodsExample();
         example.or().andIdEqualTo(id).andIsOnSaleEqualTo(true).andDeletedEqualTo(false);
@@ -177,7 +172,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取所有在售物品总数
-     *
      * @return
      */
     public Integer queryOnSale() {
@@ -203,7 +197,6 @@ public class LitemallGoodsService {
 
     /**
      * 获取所有物品总数，包括在售的和下架的，但是不包括已删除的商品
-     *
      * @return
      */
     public int count() {

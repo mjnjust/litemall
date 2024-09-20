@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import org.linlinjava.litemall.db.dao.LitemallCategoryMapper;
 import org.linlinjava.litemall.db.domain.LitemallCategory;
 import org.linlinjava.litemall.db.domain.LitemallCategoryExample;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -37,6 +38,7 @@ public class LitemallCategoryService {
         return categoryMapper.selectByExample(example);
     }
 
+    @Cacheable(value = "category", key = "#pid")
     public List<LitemallCategory> queryByPid(Integer pid) {
         LitemallCategoryExample example = new LitemallCategoryExample();
         example.or().andPidEqualTo(pid).andDeletedEqualTo(false);
@@ -49,6 +51,7 @@ public class LitemallCategoryService {
         return categoryMapper.selectByExample(example);
     }
 
+    @Cacheable(value = "category", key = "#id")
     public LitemallCategory findById(Integer id) {
         return categoryMapper.selectByPrimaryKey(id);
     }

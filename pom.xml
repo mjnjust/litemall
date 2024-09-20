@@ -63,6 +63,12 @@
                 <version>1.3.2</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
             <!-- Spring Boot pagehelper 依赖 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
