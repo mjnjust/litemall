@@ -11,7 +11,6 @@
                   finished-text="没有更多了"
                   @load="getGoodsList">
           <div class="h">
-            <div class="name">{{currentCategory.name}}</div>
             <div class="desc">{{currentCategory.desc}}</div>
           </div>
           <van-card v-for="(item, i) in goodsList"
@@ -122,7 +121,7 @@ export default {
 }
 
 .h {
-  height: 100px;
+  height: 30px;
   width: 100%;
   margin-top: 10px;
   display: flex;

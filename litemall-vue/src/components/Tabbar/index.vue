@@ -36,22 +36,6 @@ export default {
           icon: 'class-full',
           dot: false,
           info: ''
-        },
-        {
-          name: '购物车',
-          path: '/order',
-          pathName: 'cart',
-          icon: 'cart-full',
-          dot: false,
-          info: ''
-        },
-        {
-          name: '我的',
-          path: '/user',
-          pathName: 'user',
-          icon: 'wode',
-          dot: false,
-          info: ''
         }
       ]
     };

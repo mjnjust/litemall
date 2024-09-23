@@ -164,15 +164,6 @@
                 @native-click="goDetail(groupGood.id)">
         <!-- <div slot="footer">添加日期 {{item.addTime}}</div> -->
       </van-card>
-      <div slot='header'>
-        <van-cell-group>
-          <van-cell title="人气推荐"
-                    isLink>
-            <router-link to="/items/hot"
-                         class="text-desc">更多人气推荐</router-link>
-          </van-cell>
-        </van-cell-group>
-      </div>
     </van-panel>
   </div>
 </template>

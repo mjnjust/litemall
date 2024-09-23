@@ -14,7 +14,8 @@ module.exports = {
     port: 6255,
     proxy: {
       '/wx': {
-        target: 'http://localhost:8080'
+        // target: 'http://localhost:8080',
+        target: 'http://110.40.182.227:8001'
       },
     },
   },
