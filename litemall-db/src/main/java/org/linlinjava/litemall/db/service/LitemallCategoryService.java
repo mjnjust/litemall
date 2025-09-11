@@ -38,7 +38,7 @@ public class LitemallCategoryService {
         return categoryMapper.selectByExample(example);
     }
 
-    @Cacheable(value = "category", key = "#pid")
+//    @Cacheable(value = "category", key = "#pid")
     public List<LitemallCategory> queryByPid(Integer pid) {
         LitemallCategoryExample example = new LitemallCategoryExample();
         example.or().andPidEqualTo(pid).andDeletedEqualTo(false);

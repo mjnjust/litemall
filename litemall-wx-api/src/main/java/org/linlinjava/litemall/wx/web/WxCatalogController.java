@@ -64,7 +64,7 @@ public class WxCatalogController {
             currentCategory = categoryService.findById(id);
         } else {
              if (l1CatList.size() > 0) {
-                currentCategory = l1CatList.get(0);
+                currentCategory = l1CatList.get(1);
             }
         }
 
