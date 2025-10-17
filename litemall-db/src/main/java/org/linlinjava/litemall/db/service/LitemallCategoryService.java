@@ -51,7 +51,6 @@ public class LitemallCategoryService {
         return categoryMapper.selectByExample(example);
     }
 
-    @Cacheable(value = "category", key = "#id")
     public LitemallCategory findById(Integer id) {
         return categoryMapper.selectByPrimaryKey(id);
     }

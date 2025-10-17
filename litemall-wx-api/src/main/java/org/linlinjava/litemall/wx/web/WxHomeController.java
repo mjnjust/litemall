@@ -59,6 +59,10 @@ public class WxHomeController {
 
     private static ThreadPoolExecutor executorService = new ThreadPoolExecutor(9, 9, 1000, TimeUnit.MILLISECONDS, WORK_QUEUE, HANDLER);
 
+    public WxHomeController() {
+        int a = 1 ;
+    }
+
     @GetMapping("/cache")
     public Object cache(@NotNull String key) {
         if (!key.equals("litemall_cache")) {

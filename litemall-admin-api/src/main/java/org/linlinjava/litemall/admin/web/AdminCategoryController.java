@@ -28,6 +28,10 @@ public class AdminCategoryController {
     @Autowired
     private LitemallCategoryService categoryService;
 
+    public AdminCategoryController() {
+        int a = 1 ;
+    }
+
     @RequiresPermissions("admin:category:list")
     @RequiresPermissionsDesc(menu = {"商场管理", "类目管理"}, button = "查询")
     @GetMapping("/list")

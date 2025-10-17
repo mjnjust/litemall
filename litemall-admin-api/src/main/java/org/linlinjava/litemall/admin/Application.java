@@ -15,6 +15,20 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+//        System.out.println(InitExample.value);
+    }
+
+    public static class InitExample {
+        public static int value = 50;             // 2. 再执行赋值
+
+        static {
+            System.out.println("静态代码块执行");  // 1. 先执行
+            value = 100;
+        }
+
+        static {
+            System.out.println("value = " + value); // 输出：value = 50
+        }
     }
 
 }
