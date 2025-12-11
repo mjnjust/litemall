@@ -1,0 +1,427 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+/* 顶部导航 */
+.header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 15px;
+}
+
+.header h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* 分类标签 */
+.categories-container {
+    width: 100%;
+    position: relative;
+}
+
+.categories {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 10px;
+    margin-right: 10px;
+    background: #f0f0f0;
+    border-radius: 16px;
+    font-size: 12px;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    min-width: 20px;
+}
+
+.category-item.active {
+    background: #4a90e2;
+    color: white;
+}
+
+.category-icon {
+    width: 60px; /* 从50px增加到60px */
+    height: 60px; /* 从50px增加到60px */
+    margin-bottom: 3px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.category-item.active .category-icon {
+    border-color: white;
+}
+
+.category-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 图片展示区域 */
+.photos-container {
+    padding: 15px;
+}
+
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.photo-group {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-group:hover {
+    transform: translateY(-5px);
+}
+
+.group-image {
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.group-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.group-image img:hover {
+    transform: scale(1.05);
+}
+
+.group-name {
+    padding: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    background: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    color: #999;
+}
+
+.empty-state img {
+    width: 120px;
+    margin-bottom: 15px;
+    opacity: 0.6;
+}
+
+/* 详情页样式 */
+.detail-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+    display: none;
+}
+
+.detail-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    z-index: 1001;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.detail-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.detail-grid {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    padding-bottom: 80px;
+}
+
+.detail-image {
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 详情页底部悬浮框 */
+.detail-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #eee;
+    padding: 15px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+/* 响应式调整 */
+@media (min-width: 480px) {
+    .photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .detail-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 滑动提示 */
+.scroll-hint {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.scroll-hint::after {
+    content: "→";
+    font-size: 14px;
+    color: #666;
+}
+
+/* 底部悬浮框 */
+.floating-filter {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99;
+}
+
+.filter-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    flex: 1;
+}
+
+.filter-selection {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.filter-button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.filter-button:hover {
+    background: #3a7bc8;
+}
+
+/* 筛选弹窗 */
+.filter-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+}
+
+.filter-content {
+    background: white;
+    width: 85%;
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.location-group {
+    display: flex;
+    gap: 10px;
+}
+
+.location-select {
+    flex: 1;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.filter-cancel, .filter-apply {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s;
+}
+
+.filter-cancel {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.filter-apply {
+    background: #4a90e2;
+    color: white;
+}
+
+.filter-cancel:hover {
+    background: #e0e0e0;
+}
+
+.filter-apply:hover {
+    background: #3a7bc8;
+}
