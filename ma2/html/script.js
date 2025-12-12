@@ -5,7 +5,7 @@ const city_url = "http://8.131.145.185/api/data"
 
 // 省份和城市数据（将从接口获取）
 let locationData = [];
-let locationDataMap={}
+let locationDataMap = {}
 
 // 模拟从API获取分类数据
 function fetchCategories() {
@@ -528,6 +528,5 @@ provinceSelectEl.addEventListener('change', function () {
 
 // 监听窗口大小变化，更新滑动提示
 window.addEventListener('resize', checkScrollHint);
-
 // 启动应用
 initApp();
