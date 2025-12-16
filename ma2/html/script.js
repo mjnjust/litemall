@@ -384,7 +384,7 @@ async function showGroupDetail(groupId, groupName) {
         renderGroupDetailImages();
 
         // // 更新底部悬浮框内容并显示
-        // updateDetailFooter(footerContent);
+        updateDetailFooter(footerContent);
 
     } catch (error) {
         console.error('加载组详情失败:', error);
