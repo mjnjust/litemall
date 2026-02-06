@@ -1,0 +1,294 @@
+{
+  "appId": "67f7b5e44bb87e55f5a8c699",
+  "entryId": "6814c756e30726893512cd7f",
+  "filter": {
+    "cond": [
+      {
+        "type": "text",
+        "method": "in",
+        "value": [
+          "${value}"
+        ],
+        "entryId": "6814c756e30726893512cd7f",
+        "hasEmpty": false,
+        "field": "_widget_1763770024462"
+      }
+    ],
+    "rel": "and"
+  },
+  "skip": 0,
+  "fields": [
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "name": "label",
+      "type": "text",
+      "text": "标题"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "流水号",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763770024462",
+      "type": "sn"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "类型",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1765780443895",
+      "type": "combo",
+      "colorEnable": false,
+      "items": [
+        {
+          "value": "衣服",
+          "text": "衣服"
+        },
+        {
+          "value": "帽子",
+          "text": "帽子"
+        }
+      ]
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "款式",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1746242293714",
+      "type": "text"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "排序",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763793130332",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "库存",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1747050215076",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "描述",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763770891928",
+      "type": "textarea"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "分类",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763769901146",
+      "type": "combo",
+      "colorEnable": false,
+      "async": {
+        "data": {
+          "formId": "6920fcf62dc8c36caac4afeb",
+          "field": "_widget_1763357882073"
+        }
+      }
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "帽子分类",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1765528377780",
+      "type": "combo",
+      "colorEnable": false,
+      "async": {
+        "data": {
+          "formId": "68158a05eb085d16c79f45cd",
+          "field": "_widget_1748262497196"
+        }
+      }
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "分类编码",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763769901148",
+      "type": "text"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "分类无用",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1748412374678",
+      "type": "combo",
+      "colorEnable": false,
+      "items": [
+        {
+          "value": "粉色",
+          "text": "粉色"
+        },
+        {
+          "value": "蓝色",
+          "text": "蓝色"
+        },
+        {
+          "value": "紫色",
+          "text": "紫色"
+        },
+        {
+          "value": "黄色",
+          "text": "黄色",
+          "color": "#A2C204"
+        },
+        {
+          "value": "绿色",
+          "text": "绿色",
+          "color": "#00AED1"
+        },
+        {
+          "value": "红色",
+          "text": "红色",
+          "color": "#5865F5"
+        }
+      ]
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "租金",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1748412001179",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "押金",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1748412001178",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "图片",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1746192214992",
+      "type": "image",
+      "showStyle": "card"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "text": "库存",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1765781927469",
+      "type": "subform",
+      "pc_sticky_column": {
+        "enable": false,
+        "limit": 1
+      },
+      "items": [
+        {
+          "id": "6814c756e30726893512cd7f",
+          "form": "6814c756e30726893512cd7f",
+          "text": "尺码",
+          "labelHidden": false,
+          "name": "_widget_1765781927471",
+          "type": "combo",
+          "colorEnable": false,
+          "items": [
+            {
+              "value": "S",
+              "text": "S"
+            },
+            {
+              "value": "M",
+              "text": "M"
+            },
+            {
+              "value": "L",
+              "text": "L"
+            }
+          ],
+          "subform": "_widget_1765781927469"
+        },
+        {
+          "id": "6814c756e30726893512cd7f",
+          "form": "6814c756e30726893512cd7f",
+          "text": "数量",
+          "labelHidden": false,
+          "name": "_widget_1765781927473",
+          "type": "number",
+          "precision": null,
+          "displayMode": "number",
+          "thousandsSeparator": false,
+          "subform": "_widget_1765781927469"
+        }
+      ]
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "name": "creator",
+      "type": "user",
+      "text": "提交人"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "name": "createTime",
+      "type": "datetime",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "text": "提交时间"
+    },
+    {
+      "id": "6814c756e30726893512cd7f",
+      "form": "6814c756e30726893512cd7f",
+      "name": "updateTime",
+      "type": "datetime",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "text": "更新时间"
+    }
+  ],
+  "limit": 100,
+  "sort": [
+    {
+      "_widget_1746242293714": 1
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "appId": "67f7b5e44bb87e55f5a8c699",
+  "entryId": "6920fcf62dc8c36caac4afeb",
+  "filter": {
+    "cond": [],
+    "rel": "and"
+  },
+  "skip": 0,
+  "fields": [
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "text": "分类编码",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763359182895",
+      "type": "sn"
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "text": "分类名称",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763357882073",
+      "type": "text"
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "text": "图片",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763357882074",
+      "type": "image",
+      "showStyle": "card"
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "text": "排序",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1763368849561",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "name": "creator",
+      "type": "user",
+      "text": "提交人"
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "name": "createTime",
+      "type": "datetime",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "text": "提交时间"
+    },
+    {
+      "id": "6920fcf62dc8c36caac4afeb",
+      "form": "6920fcf62dc8c36caac4afeb",
+      "name": "updateTime",
+      "type": "datetime",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "text": "更新时间"
+    }
+  ],
+  "limit": 200,
+  "sort": []
+}
