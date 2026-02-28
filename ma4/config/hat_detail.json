@@ -1,0 +1,134 @@
+{
+  "appId": "67f7b5e44bb87e55f5a8c699",
+  "entryId": "68158a05eb085d16c79f45cd",
+  "authGroupId": -4,
+  "filter": {
+    "cond": [
+      {
+        "type": "text",
+        "method": "in",
+        "value": [
+          "${value}"
+        ],
+        "entryId": "68158a05eb085d16c79f45cd",
+        "hasEmpty": false,
+        "field": "_widget_1748262497196"
+      }
+    ],
+    "rel": "and"
+  },
+  "skip": 0,
+  "fields": [
+    {
+      "id": "68158a05eb085d16c79f45cd",
+      "form": "68158a05eb085d16c79f45cd",
+      "text": "编号",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1746342147352",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    },
+    {
+      "id": "68158a05eb085d16c79f45cd",
+      "form": "68158a05eb085d16c79f45cd",
+      "text": "款式名",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1746242055521",
+      "type": "text"
+    },
+    {
+      "id": "68158a05eb085d16c79f45cd",
+      "form": "68158a05eb085d16c79f45cd",
+      "text": "下拉框",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1748262497196",
+      "type": "combo",
+      "colorEnable": false,
+      "items": [
+        {
+          "value": "粉色繁花",
+          "text": "粉色繁花"
+        },
+        {
+          "value": "粉色流苏",
+          "text": "粉色流苏"
+        },
+        {
+          "value": "蓝粉撞色",
+          "text": "蓝粉撞色"
+        },
+        {
+          "value": "蓝色繁花",
+          "text": "蓝色繁花",
+          "color": "#A2C204"
+        },
+        {
+          "value": "蓝色流苏",
+          "text": "蓝色流苏",
+          "color": "#00AED1"
+        },
+        {
+          "value": "紫色繁花",
+          "text": "紫色繁花",
+          "color": "#5865F5"
+        },
+        {
+          "value": "仙气飘飘",
+          "text": "仙气飘飘",
+          "color": "#C643E0"
+        },
+        {
+          "value": "绿色繁花",
+          "text": "绿色繁花",
+          "color": "#F0437D"
+        },
+        {
+          "value": "橙黄繁花",
+          "text": "橙黄繁花",
+          "color": "#FA8118"
+        }
+      ]
+    },
+    {
+      "id": "68158a05eb085d16c79f45cd",
+      "form": "68158a05eb085d16c79f45cd",
+      "text": "图片",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1746242055522",
+      "type": "image",
+      "showStyle": "card"
+    },
+    {
+            "id": "68158a05eb085d16c79f45cd",
+            "form": "68158a05eb085d16c79f45cd",
+            "text": "排序",
+            "labelHidden": false,
+            "lineWidth": 12,
+            "name": "_widget_1765875090525",
+            "type": "number",
+            "precision": null,
+            "displayMode": "number",
+            "thousandsSeparator": false
+        },
+    {
+      "id": "68158a05eb085d16c79f45cd",
+      "form": "68158a05eb085d16c79f45cd",
+      "text": "库存",
+      "labelHidden": false,
+      "lineWidth": 12,
+      "name": "_widget_1765864554528",
+      "type": "number",
+      "precision": null,
+      "displayMode": "number",
+      "thousandsSeparator": false
+    }
+  ],
+  "limit": 100,
+  "sort": []
+}

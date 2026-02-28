@@ -1,0 +1,66 @@
+{
+  "sh600151": {
+    "code": "sh600151",
+    "chengben_price": 17.859,
+    "chengben_nums": 200,
+    "create_time": "2026-02-06 16:22:16",
+    "update_time": "2026-02-06 16:22:16",
+    "update_count": 0
+  },
+  "sz300059": {
+    "code": "sz300059",
+    "chengben_price": 24.939,
+    "chengben_nums": 500,
+    "create_time": "2026-02-06 16:23:27",
+    "update_time": "2026-02-06 16:23:27",
+    "update_count": 0
+  },
+  "sh510210": {
+    "code": "sh510210",
+    "chengben_price": 0.967,
+    "chengben_nums": 3200,
+    "create_time": "2026-02-06 16:24:37",
+    "update_time": "2026-02-06 16:24:37",
+    "update_count": 0
+  },
+  "sh560630": {
+    "code": "sh560630",
+    "chengben_price": 1.131,
+    "chengben_nums": 3400,
+    "create_time": "2026-02-06 16:25:23",
+    "update_time": "2026-02-06 16:25:23",
+    "update_count": 0
+  },
+  "sz159915": {
+    "code": "sz159915",
+    "chengben_price": 3.126,
+    "chengben_nums": 1300,
+    "create_time": "2026-02-06 16:26:24",
+    "update_time": "2026-02-06 16:26:24",
+    "update_count": 0
+  },
+  "sz159995": {
+    "code": "sz159995",
+    "chengben_price": 1.807,
+    "chengben_nums": 2600,
+    "create_time": "2026-02-06 16:27:20",
+    "update_time": "2026-02-06 16:27:20",
+    "update_count": 0
+  },
+  "sz159688": {
+    "code": "sz159688",
+    "chengben_price": 1.0943,
+    "chengben_nums": 38700,
+    "create_time": "2026-02-06 16:30:08",
+    "update_time": "2026-02-06 16:30:08",
+    "update_count": 0
+  },
+  "sz300364": {
+    "code": "sz300364",
+    "chengben_price": 39.55,
+    "chengben_nums": 100,
+    "create_time": "2026-02-10 10:18:05",
+    "update_time": "2026-02-10 10:18:05",
+    "update_count": 0
+  }
+}

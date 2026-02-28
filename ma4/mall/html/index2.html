@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>H5相册 - 色彩分类</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container" id="app">
+    <!-- 顶部导航 -->
+    <div class="header">
+        <h1>南柚记</h1>
+        <div class="categories-container">
+            <div class="categories" id="categories">
+                <!-- 分类标签将通过JS动态生成 -->
+            </div>
+            <div class="scroll-hint" id="scrollHint"></div>
+        </div>
+    </div>
+
+    <!-- 图片展示区域 -->
+    <div class="photos-container">
+        <div class="loading" id="loading">加载中...</div>
+        <div class="photos-grid" id="photosGrid">
+            <!-- 图片组将通过JS动态生成 -->
+        </div>
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTU0LjY2NjcgMTcuMzMzM0g0OC44ODI3TDM5Ljc3NiA3LjExOTk3QzM5LjA4IDYuNDIzOTcgMzguMTQxMyA2IDM3LjE1NzMgNkgxMC42NjY3QzguNDU3MzMgNiA2LjY2NjY3IDcuNzkwNjcgNi42NjY2NyAxMFY1NEM2LjY2NjY3IDU2LjIwOTMgOC40NTczMyA1OCAxMC42NjY3IDU4SDUzLjMzMzNDNTUuNTQyNyA1OCA1Ny4zMzMzIDU2LjIwOTMgNTcuMzMzMyA1NFYyMC42NjY3QzU3LjMzMzMgMTkuNjgyNyA1Ni45MDkzIDE4Ljc0NCA1Ni4yMTMzIDE4LjA0OEw1NC42NjY3IDE3LjMzMzNaTTMyIDQ0QzI2LjQ3NzMgNDQgMjIgMzkuNTIyNyAyMiAzNEMyMiAyOC40NzczIDI2LjQ3NzMgMjQgMzIgMjRDMzcuNTIyNyAyNCA0MiAyOC40NzczIDQyIDM0QzQyIDM5LjUyMjcgMzcuNTIyNyA0NCAzMiA0NFoiIGZpbGw9IiM5OTk5OTkiLz4KPC9zdmc+"
+                 alt="空状态">
+            <p>该分类下暂无图片</p>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" style="display: none;">
+        <img id="lightboxImage" src="" alt="大图" />
+    </div>
+
+    <!-- 详情页 -->
+    <div class="detail-container" id="detailContainer">
+        <div class="detail-header">
+            <div class="back-button" id="backButton">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </div>
+            <div class="detail-title" id="detailTitle">图片组详情</div>
+        </div>
+        <div class="detail-grid" id="detailGrid">
+            <!-- 详情页图片将通过JS动态生成 -->
+        </div>
+
+        <!-- 详情页底部悬浮框 -->
+        <div class="detail-footer" id="detailFooter" style="display: none;">
+            <div class="footer-content" id="footerContent">
+<!--                &lt;!&ndash; 内容将通过JS从接口获取 &ndash;&gt;-->
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部悬浮筛选框 -->
+    <div class="floating-filter" id="floatingFilter">
+        <div class="filter-text">
+            <div>挑选有档期的</div>
+            <div class="filter-selection" id="filterSelection">请选择日期、地区和尺码</div>
+        </div>
+        <button class="filter-button" id="filterButton">筛选</button>
+    </div>
+
+    <!-- 筛选弹窗 -->
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-content">
+            <div class="filter-title">筛选条件</div>
+            <div class="filter-group">
+                <label class="filter-label" for="dateInput">选择日期</label>
+                <input type="date" class="filter-input" id="dateInput">
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">选择地区</label>
+                <div class="location-group">
+                    <div class="location-select">
+                        <select class="filter-input" id="provinceSelect">
+                            <option value="">请选择省份</option>
+                        </select>
+                    </div>
+                    <div class="location-select">
+                        <select class="filter-input" id="citySelect" disabled>
+                            <option value="">请先选择省份</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label" for="sizeSelect">选择尺码</label>
+                <select class="filter-input" id="sizeSelect">
+                    <option value="">请选择尺码</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="filter-actions">
+                <button class="filter-cancel" id="filterCancel">取消</button>
+                <button class="filter-apply" id="filterApply">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script0206.js"></script>
+</body>
+</html>
